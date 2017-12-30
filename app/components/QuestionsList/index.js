@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import Header from './Header';
+import ListItem from './ListItem';
 import styles from './styles';
 
-export { Header, styles };
+export { ListItem, styles };

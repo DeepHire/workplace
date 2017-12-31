@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
-import { View, Text, AppRegistry, ScrollView, RefreshControl, FlatList } from 'react-native';
+import { View, Text, AppRegistry, ScrollView, RefreshControl, FlatList, Alert } from 'react-native';
 import store from 'react-native-simple-store';
 
 import { Header } from '../components/Header';
-import { ListItem, Separator } from '../components/QuestionsList';
+import { ListItem, Separator } from '../components/List';
 import questions from '../data/questions';
 
 export default class HomeScreen extends Component {
-    handlePress = () => {
-        console.log('row press');
+    handlePress = (item) => {
+        Alert.alert(item.instructions['tips'][1]);
+
     };
 
     render() {
         return (
-            <View>
+            <ScrollView>
             <Header title={'Video Profile'} subTitle={'Overview'} />
             <FlatList
                     data={questions}
                     renderItem={({ item }) => 
                     <ListItem
-                    text={item}
-                    // selected={item === SELECTED}
-                    onPress={this.handlePress}
+                    text={item.title}
+                    onPress={this.handlePress.bind(this, item)}
                      />
                     } 
-                    keyExtractor={(item[title]) => item}
+                    keyExtractor={(item, index) => index}
                     ItemSeparatorComponent={Separator}
                 />
 
-            </View>
+            </ScrollView>
         );
     }
 }

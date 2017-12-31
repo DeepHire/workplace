@@ -10,12 +10,14 @@ export default EStyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '$lightGray'
+        justifyContent: "flex-start",
+        backgroundColor: '#fff'
 
     },
     text: {
         fontSize: 16,
         color: '$darkText',
+        paddingLeft: 30,
 
     },
     separator: {
@@ -23,7 +25,22 @@ export default EStyleSheet.create({
         backgroundColor: '$border',
         flex: 1,
         height: StyleSheet.hairlineWidth,
+        width: this.width * 0.3
 
+    },
+    iconContainer:  {
+        flex: 1,
+        backgroundColor:'transparent',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center'
+
+    
+    },
+    lineStyle: {
+        borderWidth: 0.5,
+        borderColor: 'black',
+        margin:10
     }
 
 });
